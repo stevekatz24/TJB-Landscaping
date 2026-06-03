@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TJB Landscaping — North Jersey's Top-Rated Lawn Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --green-deep:#162914;
+  --green-mid:#2b5225;
+  --green-bright:#4e9444;
+  --green-light:#7dc970;
+  --green-pale:#d4edce;
+  --cream:#f5f0e8;
+  --cream-dark:#e8e0cc;
+  --sand:#c8b98a;
+  --text-dark:#0f1f0e;
+  --text-mid:#3d5c3a;
+  --text-light:#7a9476;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--cream);
+  color:var(--text-dark);
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 48px;
+  background:rgba(22,41,20,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(78,148,68,0.2);
+}
+.nav-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;
+  color:#f5f0e8;letter-spacing:0.04em;
+}
+.nav-brand span{color:var(--green-light);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{
+  color:rgba(245,240,232,0.7);
+  font-size:13px;font-weight:500;letter-spacing:0.06em;
+  text-transform:uppercase;text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--green-light);}
+.nav-cta{
+  background:var(--green-bright);color:#fff;
+  font-family:'Outfit',sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;text-decoration:none;
+  padding:10px 24px;border-radius:2px;
+  transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--green-light);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--green-deep);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding:120px 48px 80px;
+}
+
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 600px 500px at 80% 50%, rgba(46,90,40,0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 400px at 10% 80%, rgba(78,148,68,0.15) 0%, transparent 60%);
+}
+
+.hero-texture{
+  position:absolute;inset:0;opacity:0.03;
+  background-image:repeating-linear-gradient(
+    45deg,
+    #fff 0px,#fff 1px,
+    transparent 1px,transparent 8px
+  );
+}
+
+.hero-leaves{
+  position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+  width:520px;height:520px;opacity:0.12;
+}
+
+.hero-content{position:relative;z-index:1;max-width:640px;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(78,148,68,0.2);
+  border:1px solid rgba(125,201,112,0.3);
+  color:var(--green-light);
+  font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+  padding:7px 16px;border-radius:20px;margin-bottom:28px;
+}
+.hero-badge::before{
+  content:'';width:6px;height:6px;
+  background:var(--green-light);border-radius:50%;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:0.5;transform:scale(1.5);}
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,8vw,88px);
+  font-weight:700;line-height:0.95;
+  color:var(--cream);
+  margin-bottom:28px;
+}
+.hero h1 em{
+  font-style:italic;color:var(--green-light);
+  display:block;
+}
+
+.hero-sub{
+  font-size:16px;font-weight:300;line-height:1.7;
+  color:rgba(245,240,232,0.65);
+  max-width:480px;margin-bottom:40px;
+}
+
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+
+.btn-primary{
+  background:var(--green-bright);color:#fff;
+  font-family:'Outfit',sans-serif;
+  font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  padding:16px 36px;border-radius:2px;text-decoration:none;
+  border:none;cursor:pointer;
+  transition:background 0.2s,transform 0.15s;
+  display:inline-block;
+}
+.btn-primary:hover{background:var(--green-light);transform:translateY(-1px);}
+
+.btn-ghost{
+  color:rgba(245,240,232,0.7);
+  font-size:13px;font-weight:500;letter-spacing:0.06em;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:color 0.2s;
+}
+.btn-ghost:hover{color:var(--green-light);}
+.btn-ghost::after{content:'↓';font-size:16px;}
+
+.hero-stats{
+  position:absolute;bottom:0;left:0;right:0;
+  display:flex;
+  background:rgba(255,255,255,0.04);
+  border-top:1px solid rgba(125,201,112,0.15);
+}
+.stat{
+  flex:1;padding:24px 32px;
+  border-right:1px solid rgba(125,201,112,0.1);
+}
+.stat:last-child{border-right:none;}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:700;color:var(--green-light);
+  line-height:1;margin-bottom:4px;
+}
+.stat-label{font-size:12px;color:rgba(245,240,232,0.5);font-weight:400;letter-spacing:0.04em;}
+
+/* ── SECTION SHARED ── */
+.section{padding:96px 48px;}
+
+.eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--green-bright);margin-bottom:12px;
+}
+
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,5vw,54px);font-weight:700;line-height:1.1;
+  color:var(--text-dark);margin-bottom:16px;
+}
+
+.section-title.light{color:var(--cream);}
+.eyebrow.light{color:var(--green-light);}
+
+/* ── SERVICES SECTION ── */
+.services-section{
+  background:var(--green-deep);
+  padding:96px 48px;
+}
+
+.services-intro{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;
+  margin-bottom:56px;
+}
+
+.services-desc{
+  font-size:15px;line-height:1.75;
+  color:rgba(245,240,232,0.6);font-weight:300;
+  padding-top:8px;
+}
+
+/* ACCORDION */
+.accordion{display:flex;flex-direction:column;gap:0;}
+
+.acc-item{
+  border-top:1px solid rgba(125,201,112,0.15);
+  overflow:hidden;
+}
+.acc-item:last-child{border-bottom:1px solid rgba(125,201,112,0.15);}
+
+.acc-trigger{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 0;
+  text-align:left;
+  transition:background 0.2s;
+}
+.acc-trigger:hover .acc-title{color:var(--green-light);}
+
+.acc-left{display:flex;align-items:center;gap:20px;}
+
+.acc-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:600;
+  color:var(--green-bright);
+  min-width:28px;
+  opacity:0.7;
+}
+
+.acc-icon-wrap{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(78,148,68,0.15);
+  border:1px solid rgba(125,201,112,0.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  font-size:20px;
+  transition:background 0.3s,border-color 0.3s;
+}
+
+.acc-item.open .acc-icon-wrap{
+  background:rgba(78,148,68,0.3);
+  border-color:rgba(125,201,112,0.5);
+}
+
+.acc-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-weight:600;
+  color:var(--cream);
+  transition:color 0.2s;
+}
+
+.acc-arrow{
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(125,201,112,0.25);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--green-light);font-size:16px;
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.2s;
+  flex-shrink:0;
+}
+.acc-item.open .acc-arrow{
+  transform:rotate(180deg);
+  background:rgba(78,148,68,0.2);
+}
+
+.acc-body{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+.acc-body-inner{
+  padding:0 0 36px 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+
+.acc-description{
+  font-size:15px;line-height:1.8;
+  color:rgba(245,240,232,0.65);font-weight:300;
+  padding-left:92px; /* align with title */
+}
+
+.acc-details{padding-top:4px;}
+
+.acc-includes-label{
+  font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--green-bright);margin-bottom:14px;
+}
+
+.acc-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.acc-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:rgba(245,240,232,0.7);font-weight:400;line-height:1.5;
+}
+.acc-list li::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--green-bright);flex-shrink:0;margin-top:7px;
+}
+
+.acc-cta{
+  margin-top:20px;
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--green-light);text-decoration:none;
+  transition:gap 0.2s;
+}
+.acc-cta:hover{gap:12px;}
+.acc-cta::after{content:'→';}
+
+/* ── WHY US ── */
+.why-section{background:var(--cream);padding:96px 48px;}
+
+.pillars-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  margin-top:56px;
+}
+
+.pillar-card{
+  background:#fff;
+  border:1px solid var(--cream-dark);
+  border-radius:3px;
+  padding:32px 24px;
+  position:relative;overflow:hidden;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.pillar-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(22,41,20,0.08);}
+.pillar-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-bright),var(--green-light));
+}
+
+.pillar-icon{font-size:28px;margin-bottom:16px;display:block;}
+.pillar-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:700;color:var(--text-dark);
+  margin-bottom:10px;
+}
+.pillar-desc{font-size:13px;color:var(--text-mid);line-height:1.7;font-weight:300;}
+
+/* ── REVIEWS ── */
+.reviews-section{
+  background:var(--green-mid);
+  padding:96px 48px;
+}
+
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:56px;
+}
+
+.review-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(125,201,112,0.15);
+  border-radius:3px;padding:28px;
+}
+
+.review-stars{color:#f5c842;font-size:14px;letter-spacing:2px;margin-bottom:12px;}
+
+.review-text{
+  font-size:14px;line-height:1.75;
+  color:rgba(245,240,232,0.75);font-weight:300;
+  font-style:italic;margin-bottom:16px;
+}
+
+.review-author{
+  font-size:12px;font-weight:600;letter-spacing:0.06em;
+  color:var(--green-light);text-transform:uppercase;
+}
+
+/* ── CTA ── */
+.cta-section{
+  background:var(--green-deep);
+  padding:96px 48px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+
+.cta-section::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(78,148,68,0.15) 0%,transparent 70%);
+}
+
+.cta-section .section-title{margin-bottom:12px;}
+.cta-lead{
+  font-size:16px;color:rgba(245,240,232,0.55);font-weight:300;
+  margin-bottom:36px;
+}
+
+.cta-contact{
+  display:flex;justify-content:center;align-items:center;gap:24px;
+  margin-top:32px;flex-wrap:wrap;
+}
+.cta-contact-item{
+  font-size:13px;color:rgba(245,240,232,0.55);
+}
+.cta-contact-item a{color:var(--green-light);text-decoration:none;}
+
+/* ── FOOTER ── */
+footer{
+  background:#0a150a;
+  padding:32px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(78,148,68,0.15);
+}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:700;color:var(--green-light);
+}
+.footer-copy{font-size:11px;color:rgba(245,240,232,0.3);letter-spacing:0.04em;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{
+  font-size:12px;color:rgba(245,240,232,0.4);text-decoration:none;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--green-light);}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  nav{padding:16px 24px;}
+  .nav-links{display:none;}
+  .hero{padding:100px 24px 80px;}
+  .hero-stats{flex-wrap:wrap;}
+  .stat{min-width:50%;}
+  .section{padding:64px 24px;}
+  .services-section,.why-section,.reviews-section,.cta-section{padding:64px 24px;}
+  .services-intro{grid-template-columns:1fr;}
+  .pillars-grid{grid-template-columns:1fr 1fr;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .acc-body-inner{grid-template-columns:1fr;}
+  .acc-description{padding-left:0;}
+  footer{flex-direction:column;gap:16px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">TJB <span>Landscaping</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Free Estimate</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+
+  <!-- decorative leaf SVG -->
+  <svg class="hero-leaves" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="260" cy="260" rx="220" ry="140" fill="#4e9444" transform="rotate(-25 260 260)"/>
+    <ellipse cx="260" cy="260" rx="180" ry="100" fill="#2b5225" transform="rotate(20 260 260)"/>
+    <ellipse cx="180" cy="180" rx="140" ry="80" fill="#4e9444" transform="rotate(-60 180 180)"/>
+    <ellipse cx="340" cy="340" rx="120" ry="70" fill="#2b5225" transform="rotate(45 340 340)"/>
+    <line x1="260" y1="80" x2="260" y2="440" stroke="#7dc970" stroke-width="1.5" opacity="0.4"/>
+    <line x1="260" y1="200" x2="180" y2="130" stroke="#7dc970" stroke-width="1" opacity="0.3"/>
+    <line x1="260" y1="260" x2="340" y2="200" stroke="#7dc970" stroke-width="1" opacity="0.3"/>
+    <line x1="260" y1="320" x2="160" y2="290" stroke="#7dc970" stroke-width="1" opacity="0.3"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">North Jersey's Top-Rated · Montvale, NJ</div>
+    <h1>
+      Lawn Care<br>That Sets Your<br>
+      <em>Property Apart.</em>
+    </h1>
+    <p class="hero-sub">
+      Professional landscaping, hardscaping, and lawn maintenance serving Bergen County homeowners for 7+ years. Honest pricing, fast response, zero hassle.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Estimate</a>
+      <a href="#services" class="btn-ghost">See Our Services</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100+</div>
+      <div class="stat-label">Verified Reviews</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7+</div>
+      <div class="stat-label">Years in Business</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">Estimates, No Pressure</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-intro reveal">
+    <div>
+      <p class="eyebrow light">What We Do</p>
+      <h2 class="section-title light">Full-Service Landscaping<br>for Every Season</h2>
+    </div>
+    <p class="services-desc">
+      From weekly lawn maintenance to custom hardscaping and outdoor living spaces — TJB handles it all with the same attention to detail and honest pricing that's earned us 100+ five-star reviews across Bergen County.
+    </p>
+  </div>
+
+  <div class="accordion" id="accordion">
+
+    <!-- 1: Weekly Lawn Maintenance -->
+    <div class="acc-item" data-index="0">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-left">
+          <span class="acc-num">01</span>
+          <div class="acc-icon-wrap">🌱</div>
+          <span class="acc-title">Weekly Lawn Maintenance</span>
+        </div>
+        <div class="acc-arrow">▾</div>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-description">
+            A beautiful lawn doesn't happen by accident — it's the result of consistent, professional care all season long. Our weekly maintenance crews show up on schedule, every time, keeping your property looking sharp without you lifting a finger.<br><br>
+            We tailor every maintenance plan to your lawn's specific grass type, soil conditions, and usage patterns so you get the best results — not a generic mow-and-go.
+          </div>
+          <div class="acc-details">
+            <p class="acc-includes-label">What's Included</p>
+            <ul class="acc-list">
+              <li>Mowing to the correct seasonal height for your grass type</li>
+              <li>String trimming along borders, fences, and structures</li>
+              <li>Edging driveways, walkways, and landscape beds</li>
+              <li>Blowing clippings off hardscaped surfaces</li>
+              <li>Debris removal and site cleanup after each visit</li>
+              <li>Seasonal adjustments to mowing frequency</li>
+            </ul>
+            <a href="#contact" class="acc-cta">Get a lawn care quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: Landscape Design & Planting -->
+    <div class="acc-item" data-index="1">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-left">
+          <span class="acc-num">02</span>
+          <div class="acc-icon-wrap">🌳</div>
+          <span class="acc-title">Landscape Design & Planting</span>
+        </div>
+        <div class="acc-arrow">▾</div>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-description">
+            Transform your outdoor space with intentional plantings, defined garden beds, and thoughtful design that works with your home's architecture and the natural light of your property.<br><br>
+            We select plants that thrive in North Jersey's climate, look great in every season, and are low-maintenance for homeowners who want beauty without constant upkeep.
+          </div>
+          <div class="acc-details">
+            <p class="acc-includes-label">What's Included</p>
+            <ul class="acc-list">
+              <li>On-site design consultation and property assessment</li>
+              <li>Plant selection tailored to NJ climate and sun exposure</li>
+              <li>Installation of trees, shrubs, perennials, and annuals</li>
+              <li>Mulching and bed edging for a clean, polished finish</li>
+              <li>Grading and soil amendment where needed</li>
+              <li>Seasonal color rotations and replanting</li>
+            </ul>
+            <a href="#contact" class="acc-cta">Start your design project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: Brick & Stone Patios (Hardscaping) -->
+    <div class="acc-item" data-index="2">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-left">
+          <span class="acc-num">03</span>
+          <div class="acc-icon-wrap">🧱</div>
+          <span class="acc-title">Brick & Stone Patios</span>
+        </div>
+        <div class="acc-arrow">▾</div>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-description">
+            A well-built patio is the foundation of your outdoor living space — and it adds serious value to your home. We specialize in custom hardscaping using natural stone, pavers, brick, and concrete block systems that last decades when properly installed.<br><br>
+            Every project starts with proper base preparation and drainage planning so your investment holds up through North Jersey's freeze-thaw cycles year after year.
+          </div>
+          <div class="acc-details">
+            <p class="acc-includes-label">What's Included</p>
+            <ul class="acc-list">
+              <li>Custom patio design and layout planning</li>
+              <li>Natural stone, bluestone, travertine, and paver options</li>
+              <li>Proper base excavation and compacted gravel installation</li>
+              <li>Retaining walls and raised garden borders</li>
+              <li>Steps, walkways, and entry paths</li>
+              <li>Polymeric sand jointing and sealing</li>
+            </ul>
+            <a href="#contact" class="acc-cta">Plan your patio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: Outdoor Kitchens -->
+    <div class="acc-item" data-index="3">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-left">
+          <span class="acc-num">04</span>
+          <div class="acc-icon-wrap">🏠</div>
+          <span class="acc-title">Outdoor Kitchens</span>
+        </div>
+        <div class="acc-arrow">▾</div>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-description">
+            Extend your living space outdoors with a fully functional kitchen built to handle the elements. From simple built-in grill stations to full outdoor kitchens with countertops, refrigeration, and seating areas — we design and build custom setups that complement your patio and backyard layout.<br><br>
+            We coordinate all trades and handle the project end-to-end so you don't have to juggle contractors.
+          </div>
+          <div class="acc-details">
+            <p class="acc-includes-label">What's Included</p>
+            <ul class="acc-list">
+              <li>Custom layout and design tailored to your space</li>
+              <li>Built-in grill and appliance installation</li>
+              <li>Stone, stucco, and tile countertop finishes</li>
+              <li>Outdoor bar seating and storage cabinets</li>
+              <li>Pergola and shade structure integration</li>
+              <li>Lighting and utility rough-in coordination</li>
+            </ul>
+            <a href="#contact" class="acc-cta">Design your outdoor kitchen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5: Fall & Spring Cleanups -->
+    <div class="acc-item" data-index="4">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-left">
+          <span class="acc-num">05</span>
+          <div class="acc-icon-wrap">🍂</div>
+          <span class="acc-title">Fall & Spring Cleanups</span>
+        </div>
+        <div class="acc-arrow">▾</div>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-description">
+            Seasonal transitions are the most labor-intensive times of year for your lawn and garden — and the most important. A proper fall cleanup sets your lawn up to survive the winter healthy. A thorough spring cleanup sets the tone for the entire growing season.<br><br>
+            We leave your property looking immaculate and ready for the season ahead.
+          </div>
+          <div class="acc-details">
+            <p class="acc-includes-label">What's Included</p>
+            <ul class="acc-list">
+              <li>Full leaf removal and disposal (fall)</li>
+              <li>Cutting back perennials and ornamental grasses</li>
+              <li>Dethatching and debris clearing (spring)</li>
+              <li>Bed cleanup, edging, and fresh mulch installation</li>
+              <li>Fertilization and pre-emergent weed control</li>
+              <li>Gutter clearing (available as an add-on)</li>
+            </ul>
+            <a href="#contact" class="acc-cta">Book a seasonal cleanup</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6: Snow Removal -->
+    <div class="acc-item" data-index="5">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-left">
+          <span class="acc-num">06</span>
+          <div class="acc-icon-wrap">❄️</div>
+          <span class="acc-title">Snow Removal</span>
+        </div>
+        <div class="acc-arrow">▾</div>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-description">
+            Don't let a North Jersey snowstorm disrupt your morning or put your family at risk. TJB offers reliable residential snow removal throughout Bergen County — so your driveway and walkways are clear before you need to leave.<br><br>
+            We offer both per-storm pricing and seasonal contracts so you can choose what works best for your budget and peace of mind.
+          </div>
+          <div class="acc-details">
+            <p class="acc-includes-label">What's Included</p>
+            <ul class="acc-list">
+              <li>Driveway plowing and pushing after every storm</li>
+              <li>Walkway, step, and entry path shoveling</li>
+              <li>Ice melt / salt application for safety</li>
+              <li>Per-storm pricing or seasonal contracts available</li>
+              <li>Priority scheduling for contracted customers</li>
+              <li>Serving Bergen County residential properties</li>
+            </ul>
+            <a href="#contact" class="acc-cta">Get a snow removal quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="why">
+  <div class="reveal">
+    <p class="eyebrow">Why Homeowners Choose TJB</p>
+    <h2 class="section-title">We Do What We Say.<br>Every Single Time.</h2>
+  </div>
+  <div class="pillars-grid reveal">
+    <div class="pillar-card">
+      <span class="pillar-icon">⏱</span>
+      <h3 class="pillar-title">Fast Response</h3>
+      <p class="pillar-desc">We call back within minutes, not days. When you reach out, you hear from a real person who can actually answer your questions.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">🏆</span>
+      <h3 class="pillar-title">4.9-Star Reputation</h3>
+      <p class="pillar-desc">Over 100 verified five-star reviews from real Bergen County homeowners. Our work ethic and results speak for themselves.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">📍</span>
+      <h3 class="pillar-title">Truly Local</h3>
+      <p class="pillar-desc">Based in Montvale, NJ. We know Bergen County's soil, climate, and neighborhoods — and we show up because our reputation is local too.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">💰</span>
+      <h3 class="pillar-title">Honest Pricing</h3>
+      <p class="pillar-desc">Free estimates with no pressure, no upselling, and no surprises. You get a fair quote for exactly what your property needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="reveal" style="text-align:center;margin-bottom:0;">
+    <p class="eyebrow light">Customer Reviews</p>
+    <h2 class="section-title light">What Bergen County<br>Homeowners Are Saying</h2>
+  </div>
+  <div class="reviews-grid reveal">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"TJB completely transformed our backyard. The patio they built is absolutely beautiful and the whole crew was professional from start to finish. Couldn't be happier."</p>
+      <div class="review-author">— Mike R., Montvale NJ</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I've had other landscapers before but TJB is on a different level. They show up on time, do incredible work, and my lawn has never looked better. Highly recommend."</p>
+      <div class="review-author">— Sarah K., Park Ridge NJ</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Fast, professional, and reasonably priced. They came out for a spring cleanup and now do our weekly maintenance. We won't use anyone else."</p>
+      <div class="review-author">— James T., River Vale NJ</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div style="position:relative;z-index:1;">
+    <p class="eyebrow light" style="text-align:center;">Get Started Today</p>
+    <h2 class="section-title light" style="text-align:center;">Ready for a Better-Looking<br>Property?</h2>
+    <p class="cta-lead">It takes 30 seconds. No obligation, no pressure — just an honest quote.</p>
+    <div style="text-align:center;">
+      <a href="https://tjblandscaping.com" target="_blank" class="btn-primary" style="font-size:14px;padding:18px 48px;">Request Your Free Estimate →</a>
+    </div>
+    <div class="cta-contact">
+      <div class="cta-contact-item">🌐 <a href="https://tjblandscaping.com" target="_blank">tjblandscaping.com</a></div>
+      <div class="cta-contact-item">📍 Montvale, NJ · Serving Bergen County</div>
+      <div class="cta-contact-item">📘 <a href="https://www.facebook.com/tjblandscapingservices/" target="_blank">Facebook</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">TJB Landscaping</div>
+  <div class="footer-copy">© 2026 TJB Landscaping Services · All Rights Reserved · Montvale, NJ</div>
+  <div class="footer-links">
+    <a href="https://tjblandscaping.com" target="_blank">Website</a>
+    <a href="https://www.facebook.com/tjblandscapingservices/" target="_blank">Facebook</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Accordion
+const items = document.querySelectorAll('.acc-item');
+items.forEach(item => {
+  const trigger = item.querySelector('.acc-trigger');
+  const body = item.querySelector('.acc-body');
+  trigger.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    // close all
+    items.forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.acc-trigger').setAttribute('aria-expanded','false');
+      i.querySelector('.acc-body').style.maxHeight = '0';
+    });
+    // open clicked if was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      trigger.setAttribute('aria-expanded','true');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {threshold: 0.12});
+reveals.forEach(el => observer.observe(el));
+
+// Stagger accordion items reveal
+document.querySelectorAll('.acc-item').forEach((item, i) => {
+  item.style.opacity = '0';
+  item.style.transform = 'translateY(20px)';
+  item.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+  setTimeout(() => {
+    const ob = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+          ob.disconnect();
+        }
+      });
+    }, {threshold: 0.1});
+    ob.observe(item);
+  }, 100);
+});
+</script>
+</body>
+</html>
